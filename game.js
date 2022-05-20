@@ -82,6 +82,13 @@ window.onload= function(){
 				setLose();
 			}
 						
+						
+		// win case
+		let end=document.getElementById("end");
+			end.onmouseover=function()
+			{
+				setWon();
+			}
 			
 		
 	}
