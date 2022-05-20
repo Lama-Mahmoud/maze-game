@@ -8,6 +8,9 @@ window.onload= function(){
 	
 	let boundaries = document.getElementsByClassName("boundary");
 	
+	
+	let mainDiv= document.getElementById("game");
+	
 	// lost case inner html change
 	let lost=' <div id="start">S</div>'+'\n'+
 				'<div class="boundary youlose" id="boundary1"></div>'+'\n'+
@@ -27,7 +30,6 @@ window.onload= function(){
 				'<div id="end">E</div>';
 	
 	function setLose(){
-		let mainDiv= document.getElementById("game");
 		
 		mainDiv.innerHTML=lost;
 		
@@ -50,8 +52,12 @@ window.onload= function(){
 		
 	}
 	
+	/// win case
 	
 	function setWon(){
+		
+		mainDiv.innerHTML= repeat;// to prevent making lose case again
+		
 		document.body.style.background = "#88ff88";
 		let status=document.getElementById("status");
 			status.innerHTML="you WON press on the keyboard to repeat";
