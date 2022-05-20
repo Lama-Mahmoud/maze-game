@@ -84,33 +84,23 @@ window.onload= function(){
 		start.removeEventListener('click',startGame); 
 		
 		boundaries[0].onmouseover=function()
-			{
-				setLose();
-			}			
+			{setLose();}			
 		boundaries[1].onmouseover=function()
-			{
-				setLose();	
-			}			
+			{setLose();}			
 		boundaries[2].onmouseover=function()
-			{
-				setLose();
-			}			
+			{setLose();}			
 		boundaries[3].onmouseover=function()
-			{
-				setLose();		
-			}
+			{setLose();}			
 		boundaries[4].onmouseover=function()
-			{
-				setLose();
-			}
+			{setLose();}			
+			
 						
 						
 		// win case
 		let end=document.getElementById("end");
 			end.onmouseover=function()
-			{
-				setWon();
-			}
+				{setWon();}
+			
 			
 		
 	}
