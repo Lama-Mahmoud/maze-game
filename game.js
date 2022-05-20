@@ -51,6 +51,28 @@ window.onload= function(){
 	}
 	
 	
+	function setWon(){
+		document.body.style.background = "#88ff88";
+		let status=document.getElementById("status");
+			status.innerHTML="you WON press on the keyboard to repeat";
+			
+		// to play again
+		
+		document.onkeypress = function () {
+
+			//reassign value of divs
+			status.innerHTML='Begin by moving your mouse over the "S".';
+			
+			document.body.style.background = "white";
+			// reassign value of start boundaries and add event listener
+			start = document.getElementById("start");
+			start.addEventListener('click',startGame);
+			boundaries = document.getElementsByClassName("boundary");
+			};
+		
+	}
+	
+	
 	
 	
 	
