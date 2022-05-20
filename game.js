@@ -30,15 +30,18 @@ window.onload= function(){
 		let mainDiv= document.getElementById("game");
 		
 		mainDiv.innerHTML=lost;
-				
+		
+		let status=document.getElementById("status");
+			status.innerHTML="you lost press on the keyboard to repeat";
 		
 		// to play again
 		
 		document.onkeypress = function () {
 
 			//reassign value of divs
-			
 			mainDiv.innerHTML= repeat;
+			status.innerHTML='Begin by moving your mouse over the "S".';
+			
 			// reassign value of start boundaries and add event listener
 			start = document.getElementById("start");
 			start.addEventListener('click',startGame);
