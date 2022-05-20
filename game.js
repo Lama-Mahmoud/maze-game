@@ -8,6 +8,27 @@ window.onload= function(){
 	
 	let boundaries = document.getElementsByClassName("boundary");
 	
+	// lost case inner html change
+	let lost=' <div id="start">S</div>'+'\n'+
+				'<div class="boundary youlose" id="boundary1"></div>'+'\n'+
+				'<div class="boundary youlose"></div>'+'\n'+
+				'<div class="boundary youlose"></div>'+'\n'+
+				'<div class="boundary youlose"></div>'+'\n'+
+				'<div class="boundary youlose"></div>'+'\n'+
+				'<div id="end">E</div>';
+	
+	function setLose(){
+		let mainDiv= document.getElementById("game");
+		mainDiv.innerHTML=lost;
+				
+		start.removeEventListener('click',startGame);
+		
+	}
+	
+	
+	
+	
+	
 	function startGame()
 	{
 		console.log('game started');
