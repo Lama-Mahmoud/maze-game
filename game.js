@@ -16,12 +16,34 @@ window.onload= function(){
 				'<div class="boundary youlose"></div>'+'\n'+
 				'<div class="boundary youlose"></div>'+'\n'+
 				'<div id="end">E</div>';
+				
+		// defining repeat string	
+			let repeat=' <div id="start">S</div>'+'\n'+
+				'<div class="boundary" id="boundary1"></div>'+'\n'+
+				'<div class="boundary"></div>'+'\n'+
+				'<div class="boundary"></div>'+'\n'+
+				'<div class="boundary"></div>'+'\n'+
+				'<div class="boundary"></div>'+'\n'+
+				'<div id="end">E</div>';
 	
 	function setLose(){
 		let mainDiv= document.getElementById("game");
+		
 		mainDiv.innerHTML=lost;
 				
-		start.removeEventListener('click',startGame);
+		
+		// to play again
+		
+		document.onkeypress = function () {
+
+			//reassign value of divs
+			
+			mainDiv.innerHTML= repeat;
+			// reassign value of start boundaries and add event listener
+			start = document.getElementById("start");
+			start.addEventListener('click',startGame);
+			boundaries = document.getElementsByClassName("boundary");
+			};
 		
 	}
 	
@@ -32,7 +54,10 @@ window.onload= function(){
 	function startGame()
 	{
 		console.log('game started');
-	
+		
+		
+		start.removeEventListener('click',startGame); 
+		
 		boundaries[0].onmouseover=function()
 			{
 				setLose();
