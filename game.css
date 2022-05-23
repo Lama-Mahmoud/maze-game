@@ -111,10 +111,11 @@ neighboring elements.  Necessary to avoid giving ids to the boundary divs
 	width: 98px;
 }
 .item{
-	flex-basis:33.33%;
+	flex-basis:20%;
 }
 
-#flex{
+.flex{
+	
 	display:flex;
 	align-content: center;
 }
