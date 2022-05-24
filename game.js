@@ -1,5 +1,44 @@
 window.onload= function(){
 	
+	
+	// time representation
+	var seconds = 00; 
+	var tens = 00; 
+	var appendTens = document.getElementById("tens");
+	var appendSeconds = document.getElementById("seconds");
+	var Last = document.getElementById("Last");
+	var Best = document.getElementById("Best");
+	var Interval ;
+	var time=1000;
+	
+	
+	function startTimer () {
+    tens++; 
+    
+    if(tens <= 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+    
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+      
+    } 
+    
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+    
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+  
+  }
+	
+	
 	let start=document.getElementById("start");
 	
 	//make sure start is not null variable
@@ -31,6 +70,9 @@ window.onload= function(){
 	
 	function setLose(){
 		
+		//stop stopwatch
+       clearInterval(Interval);
+	   
 		mainDiv.innerHTML=lost;
 		
 		let status=document.getElementById("status");
@@ -56,6 +98,8 @@ window.onload= function(){
 	
 	function setWon(){
 		
+		
+	   
 		mainDiv.innerHTML= repeat;// to prevent making lose case again
 		
 		document.body.style.background = "#88ff88";
@@ -75,6 +119,16 @@ window.onload= function(){
 			start.addEventListener('click',startGame);
 			boundaries = document.getElementsByClassName("boundary");
 			};
+			
+		
+       clearInterval(Interval);
+	   x=parseInt(seconds)+(parseFloat(tens)/100);
+	   Last.innerHTML=x;
+	   if(x<time)
+	   {
+		   time=x;
+		   Best.innerHTML=time;
+	   }	
 		
 	}
 	
@@ -86,7 +140,16 @@ window.onload= function(){
 	{
 		console.log('game started');
 		
+		// stopwatch
 		
+		tens = "00";
+		seconds = "00";
+		appendTens.innerHTML = tens;
+		appendSeconds.innerHTML = seconds;
+		clearInterval(Interval);
+		Interval = setInterval(startTimer, 10);
+		
+	
 		start.removeEventListener('click',startGame); 
 		
 		boundaries[0].onmouseover=function()
